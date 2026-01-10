@@ -1,82 +1,123 @@
-# Face recognition app using Streamlit
+# Face Recognition Attendance System (Streamlit App)
 
-This is a face recognition application built using Python, [Face-Recognition API](https://github.com/ageitgey/face_recognition) and Streamlit framework. The app allows users to upload an image containing faces and performs face recognition using the face recognition library.
+This project is a face recognition–based attendance system built with Python and Streamlit. It uses a face recognition library to detect and recognize faces from images or a live webcam feed and records attendance automatically in a CSV file.
+
+The goal of this project is to provide a simple, interactive way to manage attendance using face recognition with a clean web interface.
+
+
 
 ## Features
 
-- Face detection and recognition
-- Multi-face recognition
-- Option to display recognized faces
-- User-friendly interface
+* Face detection and recognition
+* Supports multiple faces in a single frame
+* Real-time webcam tracking
+* Image-based face recognition
+* Attendance stored in a CSV file
+* Simple and intuitive Streamlit UI
+* Easy database management (add, update, delete users)
 
-## Requirements 
-- Python 3.9
-- Streamlit 1.22.0
-- face_recognition 
 
-## Repository structure
+
+## Tech Stack & Requirements
+
+* Python 3.9
+* Streamlit 1.22.0
+* face_recognition
+* OpenCV
+* NumPy
+
+All required dependencies are listed in `requirements.txt`.
+
+
+
+## Project Structure
+
 ```bash
-├───dataset
-│   │───ID_Name.jpg
-│   │───...
-├───pages
-│   ├───1_🔧_Updating.py
-│   └───2_💾_Database
-├───Tracking.py
-│───utils.py
-├───config.yaml 
-├───requirements.txt
-├───packages.txt
-└───README.md
+├── dataset
+│   ├── ID_Name.jpg
+│   └── ...
+├── pages
+│   ├── 1_🔧_Updating.py
+│   └── 2_💾_Database
+├── Tracking.py
+├── utils.py
+├── config.yaml
+├── requirements.txt
+├── packages.txt
+└── README.md
 ```
 
-## Description
-- **dataset**: contains images of people to be recognized. The file name format is ID_Name.jpg. `For example, 1_Elon_Musk.jpg, 2_Jenna_Ortega.jpg, 3_Bill_Gates.jpg, etc.` It is freely to use jpg, jpeg or png format.
-- **pages**: contains the code for each page of the app. If you want to add more pages, you can create a new file which format is `Order_Icon_Pagename` in this folder, or just no-icon page with format `Order_Pagename`.
-- **Tracking.py**: home page of the app, using for tracking real-time using webcam and picture.
-- **utils.py**: contains the functions utilized by the app.
-- **config.yaml**: contains the configuration for the app such as path of dataset dir and prompt messages.
-- **requirements.txt**: contains the dependencies for the app.
-- **packages.txt**: contains the packages for the app used to deploy on Streamlit Cloud.
+
+
+## Folder & File Overview
+
+* **dataset**
+  Contains images of people to be recognized.
+  File naming format: `ID_Name.jpg`
+  Example: `1_Elon_Musk.jpg`, `2_Jenna_Ortega.jpg`
+  Supported formats: jpg, jpeg, png
+
+* **pages**
+  Contains individual Streamlit pages.
+  New pages can be added using the format:
+  `Order_Icon_PageName.py` or `Order_PageName.py`
+
+* **Tracking.py**
+  Main entry point of the application.
+  Handles real-time webcam tracking and image-based recognition.
+
+* **utils.py**
+  Utility functions used across the application.
+
+* **config.yaml**
+  Application configuration such as dataset paths and messages.
+
+* **requirements.txt**
+  Python dependencies.
+
+* **packages.txt**
+  Packages required for deployment on Streamlit Cloud.
 
 
 
 ## Installation
+
 1. Clone the repository
+
 ```bash
-git clone https://github.com/datct00/Face-recognition-app-using-Streamlit.git
-cd Face-recognition-app-using-Streamlit
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
-2. Install the dependencies
+2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run the app
+3. Run the application
+
 ```bash
 streamlit run Tracking.py
 ```
 
-## Usage
-1. Tracking real-time using webcam 
-2. Tracking using a image file 
-3. Updating database (adding, deleting and updating)
-4. Viewing the database
 
 
-## Demo
+## How It Works
 
-1.  Tracking using camera
-![Tracking using webcam](assets/webcam.gif) 
+1. Load known faces from the dataset folder
+2. Capture faces via webcam or upload an image
+3. Match detected faces against the dataset
+4. Automatically log attendance to a CSV file
+5. Manage users through the update and database pages
 
-2. Tracking using picture 
-![Tracking using picture](assets/tracking.png)
 
-3. Adding new person to database
-![Adding new person to database](assets/adding.png)
 
-4. Deployed app on Streamlit Cloud. [Click here](https://datct00-face-recognition-app-using-streamlit-tracking-sel9ym.streamlit.app/) to watch a demo of the app.
+## Use Cases
 
-## Contact
-If you have any questions, feel free to contact me via email: `chungtiendat8102000@gmail.com`
+* Classroom attendance
+* Office check-in systems
+* Small-scale face recognition demos
+* Learning project for computer vision + Streamlit
+
+
